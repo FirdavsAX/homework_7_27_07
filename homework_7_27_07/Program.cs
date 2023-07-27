@@ -2,43 +2,29 @@
 {
     internal class Program
     {
-        static void Main(string[] args)
+        public static void Main(string[] args)
         {
-            string[] strings = new string[] {"fluutter", "fluuy","fluuinheard"};
-            string helpStr = strings[0].Substring(0,1);
-
+            string[] str = { "havke", "haze", "havhe" };
             int k = 1;
-
-            bool b = false;
-            ///flinhard glomgold
-            
-            while(true)
+            while (check(str, k))
             {
-                for (int i = 0; i<strings.Length; i++)
+                k++;
+            }
+            Console.WriteLine(k-1);
+
+        }
+        static bool check(string[] str, int k)
+        {
+            string help = str[0].Substring(0, k);
+            foreach (var i in str)
+            {
+                if (i.Substring(0, k)!= help)
                 {
-                    if (strings[i].Substring(0,k) == helpStr)
-                    {
-                        b = true;
-                    }
-                    else
-                    {
-                        b=false;
-                        break;
-                    }
-                }
-                if (b)
-                {
-                    helpStr += strings[0].Substring(0, k);
-                    k++;
-                }
-                else
-                {
-                    break;
+                    return false;
                 }
             }
-
-            Console.WriteLine(k);
+            return true;
         }
-        
+
     }
 }
